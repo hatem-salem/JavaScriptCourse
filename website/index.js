@@ -1,26 +1,28 @@
-// let submitBtn
-const myCheckbox = document.getElementById("myCheckbox");
-const visaBtn = document.getElementById("visaBtn");
-const masterBtn = ocument.getElementById("masterBtn");
-const paypalBtn = document.getElementById("paypalBtn");
-const mySubmit = document.getElementById("mySubmit");
-const subResult = document.getElementById("subResult");
-const paymentResult = document.getElementById("paymentResult");
+//Number Guessing Game
+const MIN_NUMBER = 50;
+const MAX_NUMBER = 100;
+const answer = Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
+let attempts = 0;
+let guess;
+let running = true;
 
-mySubmit.onclick = function () {
-  if (myCheckbox.checked) {
-    subResult.textContent = `You are subscribed`;
+while (running) {
+  guess = window.prompt(`Guess a Number between ${MIN_NUMBER}-${MAX_NUMBER}`);
+  guess = Number(guess);
+  if (isNaN(guess)) {
+    window.alert("Please enter a valid number.");
+  } else if (guess < MIN_NUMBER || guess > MAX_NUMBER) {
+    window.alert("Please enter a valid number");
   } else {
-    subResult.textContent = `You are not subscribed`;
-  }
-  if (visaBtn.checked) {
-    paymentResult.textContent = `You are paying with Visa`;
-  } else if (masterBtn.checked) {
-    paymentResult.textContent = `You are paying with Master card`;
-  } else if (paypalBtn.checked) {
-    paymentResult.textContent = `You are paying with Paypal`;
-  } else {
-    paymentResult.textContent = `You must select a payment type`;
+    attempts++;
+    if (guess < answer) {
+      window.alert("TOO Low! Try Again!");
+    } else if (guess > answer) {
+      window.alert("Too High! Try Again");
+    } else {
+      window.alert(`Correct! the answer was ${answer}. It took you ${attempts} attempts`);
+      running = false;
+    }
   }
 
-};
+}
