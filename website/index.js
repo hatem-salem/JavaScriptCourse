@@ -1,28 +1,19 @@
-//Number Guessing Game
-const MIN_NUMBER = 50;
-const MAX_NUMBER = 100;
-const answer = Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
-let attempts = 0;
-let guess;
-let running = true;
+const textBox = document.getElementById("textBox");
+const toFahrenheit = document.getElementById("toFahrenheit");
+const toCelsius = document.getElementById("toCelsius");
+const result = document.getElementById("result");
+let temp;
+function convert() {
+  if (toFahrenheit.checked) {
+    temp = Number(textBox.value);
+    temp = temp * 9 / 5 + 32;
+    result.textContent = `${temp.toFixed(1)} °F`;
 
-while (running) {
-  guess = window.prompt(`Guess a Number between ${MIN_NUMBER}-${MAX_NUMBER}`);
-  guess = Number(guess);
-  if (isNaN(guess)) {
-    window.alert("Please enter a valid number.");
-  } else if (guess < MIN_NUMBER || guess > MAX_NUMBER) {
-    window.alert("Please enter a valid number");
+  } else if (toCelsius.checked) {
+    temp = Number(textBox.value);
+    temp = (temp - 32) * (5 / 9);
+    result.textContent = `${temp} °C`;
   } else {
-    attempts++;
-    if (guess < answer) {
-      window.alert("TOO Low! Try Again!");
-    } else if (guess > answer) {
-      window.alert("Too High! Try Again");
-    } else {
-      window.alert(`Correct! the answer was ${answer}. It took you ${attempts} attempts`);
-      running = false;
-    }
+    result.textContent = "Select a unit";
   }
-
 }
