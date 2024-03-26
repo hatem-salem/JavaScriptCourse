@@ -9,13 +9,17 @@
 </head>
 
 <body>
-  <label id="countLabel">0</label><br>
-  <div id="btnContainer">
-    <button id="decreaseBtn" class="buttons">decrease</button>
-    <button id="resetBtn" class="buttons">reset</button>
-    <button id="increaseBtn" class="buttons">increase</button>
-  </div>
-
+  <input type="checkbox" id="myCheckbox">
+  <label for="myCheckbox">Subscribe</label><br><br>
+  <input type="radio" id="visaBtn" name="card">
+  <label for="visaBtn">Visa</label><br>
+  <input type="radio" id="masterBtn" name="card">
+  <label for="masterBtn">Master</label><br>
+  <input type="radio" id="paypalBtn" name="card">
+  <label for="paypalBtn">Paypal</label><br><br>
+  <button type="submit" id="mySubmit">Submit</button>
+  <p id="subResult"></p>
+  <p id="paymentResult"></p>
   <script src="index.js"></script>
 </body>
 

@@ -1,18 +1,26 @@
-const decreaseBtn = document.getElementById("decreaseBtn");
-const resetBtn = document.getElementById("resetBtn");
-const increaseBtn = document.getElementById("increaseBtn");
-const countLabel = document.getElementById("countLabel");
-let count = 0;
+// let submitBtn
+const myCheckbox = document.getElementById("myCheckbox");
+const visaBtn = document.getElementById("visaBtn");
+const masterBtn = ocument.getElementById("masterBtn");
+const paypalBtn = document.getElementById("paypalBtn");
+const mySubmit = document.getElementById("mySubmit");
+const subResult = document.getElementById("subResult");
+const paymentResult = document.getElementById("paymentResult");
 
-increaseBtn.onclick = function () {
-  count++;
-  countLabel.textContent = count;
-};
-resetBtn.onclick = function () {
-  count = 0;
-  countLabel.textContent = count;
-};
-decreaseBtn.onclick = function () {
-  count--;
-  countLabel.textContent = count;
+mySubmit.onclick = function () {
+  if (myCheckbox.checked) {
+    subResult.textContent = `You are subscribed`;
+  } else {
+    subResult.textContent = `You are not subscribed`;
+  }
+  if (visaBtn.checked) {
+    paymentResult.textContent = `You are paying with Visa`;
+  } else if (masterBtn.checked) {
+    paymentResult.textContent = `You are paying with Master card`;
+  } else if (paypalBtn.checked) {
+    paymentResult.textContent = `You are paying with Paypal`;
+  } else {
+    paymentResult.textContent = `You must select a payment type`;
+  }
+
 };
