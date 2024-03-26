@@ -1,6 +1,6 @@
-let fullName = "Hatem Salem";
-let age = 50;
-let student = false;
-document.getElementById("p1").textContent = `Your name is ${fullName}`;
-document.getElementById("p2").textContent = `You are ${age} years old`;
-document.getElementById("p3").textContent = `Enrolled:${student}`;
+let username;
+document.getElementById("mySubmit").onclick = function () {
+  username = document.getElementById("username").value;
+  document.getElementById("myH1").textContent = `Hello ${username}`;
+  console.log(username);
+};
