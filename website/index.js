@@ -1,11 +1,9 @@
-let x;
-let y;
-let z;
-x = Number(x);
-y = String(y);
-z = Boolean(z);
+const PI = 3.14159;
+let radius;
+let circumference;
 
-console.log(x, typeof x);
-console.log(y, typeof y);
-console.log(z, typeof z);
-
+document.getElementById("mySubmit").onclick = function () {
+  radius = Number(document.getElementById('radius').value);
+  circumference = 2 * PI * radius;
+  document.getElementById("myH3").textContent = `${circumference} cm`;
+};
