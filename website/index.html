@@ -9,21 +9,15 @@
 </head>
 
 <body>
-  <h1>Rock - Paper - Scissors</h1>
-  <div class="choices">
-    <button onclick="playGame('rock')">👊</button>
-    <button onclick="playGame('paper')">✋</button>
-    <button onclick="playGame('scissors')">✌</button>
-  </div>
-  <div id="playerDisplay">PLAYER:</div>
-  <div id="computerDisplay">COMPUTER:</div>
-  <div id="resultDisplay"></div>
-  <div class="scoreDisplay">Player Score:
-    <span id="playerScoreDisplay">0</span>
-  </div>
-
-  <div class="scoreDisplay">Player Score:
-    <span id="computerScoreDisplay">0</span>
+  <div class="slider">
+    <div class="slides">
+      <img src="images/car1.webp" alt="car1" class="slide">
+      <img src="images/car2.webp" alt="car1" class="slide">
+      <img src="images/car3.jpeg" alt="car1" class="slide">
+      <img src="images/car4.jpeg" alt="car1" class="slide">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094</button>
+    <button class="next" onclick="nextSlide()">&#10095</button>
   </div>
 
   <script src="index.js"></script>
