@@ -16,7 +16,7 @@ function walkDog() {
 function cleanKitchen() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const kitchenCleaned = false;
+      const kitchenCleaned = true;
       if (kitchenCleaned) {
         resolve("You clean the kitchen 🧹");
       } else {
@@ -40,10 +40,29 @@ function takeoutTrash() {
 
   });
 }
-walkDog()
-  .then(value => { console.log(value); return cleanKitchen(); })
-  .then(value => { console.log(value); return takeoutTrash(); })
-  .then(value => { console.log(value); console.log("You finished all chores!"); })
-  .catch(error => console.error(error));
+// walkDog()
+//   .then(value => { console.log(value); return cleanKitchen(); })
+//   .then(value => { console.log(value); return takeoutTrash(); })
+//   .then(value => { console.log(value); console.log("You finished all chores!"); })
+//   .catch(error => console.error(error));
+// console.log("Hello World");
+// console.log(walkDog());
+
+async function doChores() {
+
+
+  try {
+    const walkDogResult = await walkDog();
+
+    console.log(walkDogResult);
+    const cleanKitchenResult = await cleanKitchen();
+    console.log(cleanKitchenResult);
+    const takeOutTrashResult = await takeoutTrash();
+    console.log(takeOutTrashResult);
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+doChores();
 console.log("Hello World");
-console.log(walkDog());
