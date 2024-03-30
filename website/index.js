@@ -1,68 +1,17 @@
-function walkDog() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const dogWalked = false;
-      if (dogWalked) {
-        resolve("You walk the dog 🐕");
-      } else {
-        reject("You DIDN't Walk the dog");
-      }
-
-    }, 1500);
-
-  });
-
-}
-function cleanKitchen() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const kitchenCleaned = true;
-      if (kitchenCleaned) {
-        resolve("You clean the kitchen 🧹");
-      } else {
-        reject("You DIDN'T clean the kitchen");
-      }
-    }, 2500);
-
-  });
-}
-function takeoutTrash() {
-  return new Promise((resolve, reject) => {
-
-    setTimeout(() => {
-      const trashTakenout = true;
-      if (trashTakenout) {
-        resolve("You take out the trash 🚮");
-      } else {
-        reject("You DIDN'T take out the trash");
-      }
-    }, 500);
-
-  });
-}
-// walkDog()
-//   .then(value => { console.log(value); return cleanKitchen(); })
-//   .then(value => { console.log(value); return takeoutTrash(); })
-//   .then(value => { console.log(value); console.log("You finished all chores!"); })
-//   .catch(error => console.error(error));
-// console.log("Hello World");
-// console.log(walkDog());
-
-async function doChores() {
-
-
+// fetchData();
+async function fetchData() {
   try {
-    const walkDogResult = await walkDog();
-
-    console.log(walkDogResult);
-    const cleanKitchenResult = await cleanKitchen();
-    console.log(cleanKitchenResult);
-    const takeOutTrashResult = await takeoutTrash();
-    console.log(takeOutTrashResult);
+    const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+    if (!response.ok) {
+      throw new Error("Coundn't fetch the resouces");
+    }
+    const data = await response.json();
+    console.log(data);
+    const pokemonSprite = document.getElementById("pokemonSprite");
+    pokemonSprite.src = data.sprites.front_default;
+    pokemonSprite.style.display = "block";
   } catch (error) {
-    console.error(error);
-  }
 
+  }
 }
-doChores();
-console.log("Hello World");
